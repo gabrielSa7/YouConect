@@ -2,40 +2,37 @@ import React, { useState } from 'react';
 import './App.css';
 import capaProjetoDefault from './images/capa.png'; // Imagem padrão da capa
 import fotoPerfilDefault from './images/perfil.png'; // Imagem padrão do perfil
+import adicionarProjetoImg from './images/adicionarProjeto.png'; // Imagem para adicionar projeto
 
 function App() {
-  // Estados para as imagens da capa e perfil
   const [capaProjeto, setCapaProjeto] = useState(capaProjetoDefault);
   const [fotoPerfil, setFotoPerfil] = useState(fotoPerfilDefault);
-  const [showFileInput, setShowFileInput] = useState(false); // Estado para controle do campo de arquivo
+  const [showFileInput, setShowFileInput] = useState(false);
 
-  // Função para atualizar a imagem da capa quando o usuário selecionar uma nova imagem
   const handleCapaChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setCapaProjeto(reader.result); // Atualiza a imagem da capa
+        setCapaProjeto(reader.result);
       };
-      reader.readAsDataURL(file); // Lê a nova imagem como URL
+      reader.readAsDataURL(file);
     }
   };
 
-  // Função para atualizar a imagem de perfil quando o usuário selecionar uma nova imagem
   const handlePerfilChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setFotoPerfil(reader.result); // Atualiza a imagem de perfil
+        setFotoPerfil(reader.result);
       };
-      reader.readAsDataURL(file); // Lê a nova imagem como URL
+      reader.readAsDataURL(file);
     }
   };
 
-  // Função para mostrar ou esconder o campo de arquivo
   const handleAddProject = () => {
-    setShowFileInput(!showFileInput); // Alterna a visibilidade do campo de arquivo
+    setShowFileInput(!showFileInput);
   };
 
   return (
@@ -43,7 +40,6 @@ function App() {
       <header className="header">
         <h1>YouConect</h1>
 
-        {/* Botão de menu (três traços) */}
         <div className="menu-icon">
           <div className="bar"></div>
           <div className="bar"></div>
@@ -54,12 +50,11 @@ function App() {
       <main className="main">
         <h2>Cadastre seu Projeto</h2>
 
-        {/* Seção da capa do projeto */}
         <div className="capa-projeto">
           <div className="capa-container">
             <img src={capaProjeto} alt="Capa do Projeto" />
             <div className="capa-texto">Capa do Projeto</div>
-            <label className="upload-button">
+            <label className="upload-button-capa">
               +
               <input 
                 type="file" 
@@ -71,7 +66,6 @@ function App() {
         </div>
 
         <div className="form">
-          {/* Seção da foto de perfil */}
           <div className="perfil">
             <img src={fotoPerfil} alt="Foto de Perfil" />
             <label className="upload-button-perfil">
@@ -84,7 +78,6 @@ function App() {
             </label>
           </div>
 
-          {/* Campos de formulário */}
           <div className="campo">
             <label>Nome do Projeto</label>
             <input type="text" placeholder="Nome do Projeto" />
@@ -103,14 +96,17 @@ function App() {
             <label>Data de Início</label>
             <input type="date" />
           </div>
+
+          <div className="campo">
+            <label>Equipe</label>
+            <input type="text" placeholder="Nome da Equipe" />
+          </div>
         </div>
 
-        {/* Botão para adicionar projetos */}
-        <button className="botao-adicionar" onClick={handleAddProject}>
-          {showFileInput ? "Cancelar" : "Adicionar Projeto"}
-        </button>
+        <div className="imagem-adicionar" onClick={handleAddProject}>
+          <img src={adicionarProjetoImg} alt="Adicionar Projeto" />
+        </div>
 
-        {/* Campo para anexar arquivos, aparece ao clicar em "Adicionar Projeto" */}
         {showFileInput && (
           <div className="campo-arquivo">
             <label>Anexar Arquivo</label>
