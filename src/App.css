@@ -115,6 +115,16 @@ h2 {
   max-width: 800px;
   margin-bottom: 20px;
 }
+/* CSS para organizar os inputs em uma grade 2x2 */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 
 .perfil {
   position: relative;
@@ -278,7 +288,7 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
-  color: white;
+  color: #2d568c;
   cursor: pointer;
 }
 
@@ -300,10 +310,21 @@ h2 {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #2DA4A5;
+  background-color: #2d568c;
   color: white;
   font-size: 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.botao-adicionar-projeto {
+  align-items: flex-start ; /* Alinha o botão à esquerda */
+  margin-bottom: 20px; /* Adiciona espaço abaixo do botão */
+  cursor: pointer;
+}
+
+.botao-adicionar-projeto img {
+  width: 25px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
 }

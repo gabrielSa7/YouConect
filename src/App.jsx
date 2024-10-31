@@ -78,6 +78,7 @@ function App() {
             </label>
           </div>
 
+<div className="form-grid">
           <div className="campo">
             <label>Nome do Projeto</label>
             <input type="text" placeholder="Nome do Projeto" />
@@ -102,10 +103,13 @@ function App() {
             <input type="text" placeholder="Nome da Equipe" />
           </div>
         </div>
+</div>
 
-        <div className="imagem-adicionar" onClick={handleAddProject}>
-          <img src={adicionarProjetoImg} alt="Adicionar Projeto" />
-        </div>
+
+        <div className="botao-adicionar-projeto" onClick={handleAddProject}>
+  <img src={adicionarProjetoImg} alt="Adicionar Projeto" />
+</div>
+
 
         {showFileInput && (
           <div className="campo-arquivo">
